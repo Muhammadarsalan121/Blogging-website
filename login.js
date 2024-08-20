@@ -5,11 +5,11 @@ import { auth } from "./config.js";
 
 
 
-const form = document.querySelector('#form')
+const form = document.querySelector('#formm')
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
 
-form.addEventListener('click' , (event)=>{
+form.addEventListener('submit' , (event)=>{
     event.preventDefault()
 
     signInWithEmailAndPassword(auth, email.value, password.value)

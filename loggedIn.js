@@ -1,4 +1,4 @@
-import {  onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+import {  onAuthStateChanged  ,  signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"
 import { auth , db} from "./config.js";
 
@@ -8,8 +8,9 @@ const form = document.querySelector('#form');
 const title = document.querySelector('#title');
 const description = document.querySelector('#description');
 const div = document.querySelector('#body-div')
+const logoutBtn = document.querySelector('#Logout-btn')
 let arr = []
-let obj ={}
+
 
 
 
@@ -49,7 +50,14 @@ function addItem(){
 
 
 
+logoutBtn.addEventListener('click' , ()=>{
 
+  signOut(auth).then(() => {
+    window.location = 'login.html'
+  }).catch((error) => {
+    // An error happened.
+  });
+})
 
 
 onAuthStateChanged(auth, (user) => {

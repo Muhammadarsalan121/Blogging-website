@@ -11,7 +11,7 @@ const password = document.querySelector('#password')
 
 
 
-form.addEventListener('click' ,(event)=>{
+form.addEventListener('submit' ,(event)=>{
     event.preventDefault()
     createUserWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
